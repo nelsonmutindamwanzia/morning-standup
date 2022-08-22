@@ -1,0 +1,8 @@
+#todo_container li {
+    list-style: none !important;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20vw;
+}

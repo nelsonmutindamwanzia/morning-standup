@@ -1,31 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
     let form = document.querySelector('form')
     form.addEventListener('submit', (e) => {
-        e.preventDefault() // prevents the form from doing its *default*
+        // prevents the form from doing its *default*
+        e.preventDefault()
         buildToDo(e.target.new_todo.value)
-        form.reset() //resets textfield after to do event is submitted
+        //resets textfield after to do event is submitted
+        form.reset()
     })
 });
 
 function buildToDo(todo) {
-    let p = document.createElement('p') //creates paragraph
-    let btn = document.createElement('button') //creates a button 
+    //creates paragraph
+    let li = document.createElement('li')
+    //creates a button 
+    let btn = document.createElement('button')
 
     btn.addEventListener('click', handleDelete)
     btn.textContent = 'x'
-    p.textContent = `${todo} `; //interpolation used to create space between event and button
-    p.appendChild(btn) //child of paragraph
-    console.log(p)
-    document.querySelector('#todo_container').appendChild(p)
+    btn.classList.add('btn','btn-danger')
+    //interpolation used to create space between event and button
+    li.textContent = `${todo} `;
+    //child of paragraph
+    li.appendChild(btn)
+    console.log(li)
+    document.querySelector('#todo_container').appendChild(li)
 }
 
 function handleDelete(e) {
-    e.target.parentNode.remove() // give the btn functionality to delete the to do event
+    // give the btn functionality to delete the to do event
+    e.target.parentNode.remove()
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("After DOM Loaded")
-})
+// Runs the js code after the DOM has been fully rendered
 
-console.log("Before DOM Loads")
+// document.addEventListener('DOMContentLoaded', () => {
+//     console.log("After DOM Loaded")
+// })
+
+// console.log("Before DOM Loads")
